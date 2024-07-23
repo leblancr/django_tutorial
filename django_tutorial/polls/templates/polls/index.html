@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>My test page</title>
+    <link rel="stylesheet" href="{% static 'polls/styles.css' %}">
+  </head>
+  <body>
+    <h2>This is my page</h2>
+    {% if latest_question_list %}  <!-- list passed in from view.index() -->
+      <ul>
+        {% for question in latest_question_list %}  <!-- a is link, href url it goes to -->
+        <!-- from <app>.urls get the url for path with name 'detail' for link
+        # ex: /polls/5/
+        path("<int:question_id>/", views.detail, name="detail"),  -->
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No polls are available.</p>
+    {% endif %}
+  </body>
+</html>
+
