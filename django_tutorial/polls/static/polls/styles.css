@@ -1,6 +1,9 @@
 body {
+    background: white url("images/Antonio-Cardoso1.jpg") no-repeat;
+    /* background-size: contain; Adjust the size while keeping the aspect ratio */
+    background-size: cover; /* Resize the image to cover the entire background */
     background-color: #17202A;
-    color: gray;
+    color: black;
     font-family: Arial, sans-serif;
     padding: 20px;
 }
@@ -17,3 +20,7 @@ li {
 margin-bottom: 10px;
 }
   
+input[type="radio"] {
+    accent-color: black; /* Sets the color of the radio button itself */
+    margin-right: 10px; /* Adds space between the radio button and the label */
+}
