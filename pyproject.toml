@@ -1,3 +1,11 @@
+[tool.poetry]
+name = "django-tutorial"
+version = "0.1.0"
+description = "A simple Django tutorial project"
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+packages = [{ include = "django_tutorial" }]
+
 [project]
 name = "django-tutorial"
 version = "0.1.0"
@@ -8,7 +16,7 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "django (>=5.2,<6.0)"
+    "django (>=5.2.4,<6.0.0)"
 ]
 
 

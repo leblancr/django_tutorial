@@ -1,4 +1,4 @@
-https://docs.djangoproject.com/en/5.0/intro/
+https://docs.djangoproject.com/en/5.2/intro/tutorial01/
 `
 Install; poetry:`
 If ide doesnt offer link:
@@ -9,7 +9,8 @@ If ide doesnt offer link:
 export PATH="$HOME/.local/bin:$PATH"
 
 Install pyenv:
-sudo pkg install pyenv
+sudo pkg install pyenv - freebsd
+sudo pacman -Sy pyenv - arch
 
 Add this to shell config (~/.bashrc, ~/.zshrc, etc.):
 export PYENV_ROOT="$HOME/.pyenv"
@@ -20,7 +21,7 @@ Install the python version required in toml:
 pyenv install 3.12.4     
 
 Set that version for your project:
-pyenv local 3.12.0
+pyenv local 3.12.4
 
 Then, to link Poetry to the correct Python version, run:
 poetry env use $(pyenv which python)
@@ -62,7 +63,7 @@ https://python-poetry.org/docs/managing-environments/#bash-csh-zsh
 
 Start virtual environment:
 # poetry shell - depricated, now use:
-source $(poetry env info --path)/bin/activate                                                                                                 1 ↵ ──(Fri,May30)─┘
+source $(poetry env info --path)/bin/activate
 (django-tutorial-py3.12) ┌─(/common-data/projects/python/django_tutorial)───────────────────────────────────────────────
 ────────────────────────────────────────────────────────────────(rich@r5-5600g-nvidia:pts/4)─┐
 
