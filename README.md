@@ -35,8 +35,8 @@ Installs all dependencies listed in:
     pyproject.toml (declared dependencies)
     poetry.lock (exact versions that were locked previously)
 Installs your project in "editable" mode:
-
 poetry install
+
 Installing dependencies from lock file
 Package operations: 3 installs, 0 updates, 0 removals
   - Installing asgiref (3.8.1)
@@ -61,6 +61,12 @@ Executable: /home/rich/.pyenv/versions/3.12.4/bin/python3.12
 
 https://python-poetry.org/docs/managing-environments/#bash-csh-zsh
 
+The poetry env activate command prints the activate command of the virtual environment to the console. You can run the output command manually or feed it to the eval command of your shell to activate the environment. This way you won’t leave the current shell.
+poetry env activate
+
+$ eval $(poetry env activate)
+(test-project-for-test) $  # Virtualenv entered
+
 Start virtual environment:
 # poetry shell - depricated, now use:
 source $(poetry env info --path)/bin/activate
@@ -75,6 +81,26 @@ now poetry shell works
 to start an interactive Python shell with Django's settings and environment loaded,
 allowing you to interact with your Django project from the command line:
 python manage.py shell
+
+poetry run python manage.py runserver
+poetry run python manage.py migrate
+
+    Safe and always uses the right venv.
+
+    No prompt change needed.
+
+source $(poetry env info --path)/bin/activate
+
+    Now your prompt shows the venv (optional).
+
+    You don’t need to type poetry run anymore — just run commands normally:
+
+python manage.py runserver
+python manage.py migrate
+
+    When done, exit with deactivate.
+
+
 
 to start the server:
 From:
