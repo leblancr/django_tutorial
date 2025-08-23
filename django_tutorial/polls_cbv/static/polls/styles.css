@@ -1,5 +1,11 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
-    background: white url("images/Antonio-Cardoso1.jpg") no-repeat;
+    /* background: white url("images/Antonio-Cardoso1.jpg") no-repeat; */
+    background: white url("images/pinney_sunset.jpg") no-repeat;
     /* background-size: contain; Adjust the size while keeping the aspect ratio */
     background-size: cover; /* Resize the image to cover the entire background */
     background-color: #17202A;

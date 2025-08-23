@@ -28,8 +28,18 @@ class DetailView(generic.DetailView):
             """
             Excludes any questions that aren't published yet.
             """
-            return Question.objects.filter(pub_date__lte=timezone.now())
+            qs = Question.objects.filter(pub_date__lte=timezone.now())
 
+            # You can use choice_set here on each Question instance without changing return
+            for q in qs:
+                print("q:")
+                print(q)
+                print("q.choice_set.all():")
+                print(q.choice_set.all())
+                for choice in q.choice_set.all():
+                    print("choice:", end="")
+                    print(choice)  # prints each choice_text via __str__
+            return qs
 
 class ResultsView(generic.DetailView):
     model = Question
@@ -42,7 +52,7 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST["choice"])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, "polls/detail.html",
+        return render(request, "polls_cbv/detail.html",
             {
                 "question": question,
                 "error_message": "You didn't select a choice.",
@@ -56,4 +66,4 @@ def vote(request, question_id):
         # user hits the Back button.
         # reverse() gets the urls path from name in urls.py
         # <int:pk>/results/
-        return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+        return HttpResponseRedirect(reverse("polls_cbv:results", args=(question.id,)))

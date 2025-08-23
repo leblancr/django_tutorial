@@ -17,14 +17,14 @@ it calls the specified view function with an HttpRequest object as the first arg
 any “captured” values from the route as keyword arguments. a view is a function.
 
 Naming your URL lets you refer to it unambiguously from elsewhere in Django, especially from within templates.
-This powerful feature allows you to make global changes to the URL patterns of your project while only touching a single file.
+This powerful feature allows global changes to the URL patterns of your project while only touching a single file.
 """
 
-app_name = "polls"
+app_name = "polls_cbv"
 
 # path to function map
 # 1st arg = everything after http://127.0.0.1:8000/polls/
-# 2nd arg = function in polls/views.py
+# 2nd arg = function in polls_cbv/views.py
 urlpatterns = [
     path("", views.IndexView.as_view(), name="index"),
     path("<int:pk>/", views.DetailView.as_view(), name="detail"),
