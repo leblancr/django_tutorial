@@ -52,7 +52,7 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST["choice"])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, "polls_cbv/detail.html",
+        return render(request, "polls/detail.html",
             {
                 "question": question,
                 "error_message": "You didn't select a choice.",
@@ -66,4 +66,4 @@ def vote(request, question_id):
         # user hits the Back button.
         # reverse() gets the urls path from name in urls.py
         # <int:pk>/results/
-        return HttpResponseRedirect(reverse("polls_cbv:results", args=(question.id,)))
+        return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))

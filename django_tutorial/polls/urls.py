@@ -20,11 +20,11 @@ Naming your URL lets you refer to it unambiguously from elsewhere in Django, esp
 This powerful feature allows global changes to the URL patterns of your project while only touching a single file.
 """
 
-app_name = "polls_cbv"
+app_name = "polls"
 
 # path to function map
 # 1st arg = everything after http://127.0.0.1:8000/polls/
-# 2nd arg = function in polls_cbv/views.py
+# 2nd arg = function in polls/views.py
 urlpatterns = [
     path("", views.IndexView.as_view(), name="index"),
     path("<int:pk>/", views.DetailView.as_view(), name="detail"),

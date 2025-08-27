@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}My Site{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'polls/styles.css' %}">
+  </head>
+  <body>
+    <!-- fixed header with Home + Background buttons -->
+    <header>
+      <a href="{% url 'polls:index' %}" class="header-button">Home</a>
+      <button id="bgButton" class="header-button">Change Background</button>
+    </header>
+
+    <div class="main-content">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <script src="{% static 'polls/script.js' %}"></script>
+  </body>
+</html>

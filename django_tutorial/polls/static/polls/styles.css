@@ -1,0 +1,51 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: black url("/static/polls/images/pinney_sunset.jpg") no-repeat top center;
+    background-size: cover;  /* fills viewport, keeps aspect ratio */
+    font-family: Arial, sans-serif;
+    color: black;
+    padding-top: 60px;       /* leave room for fixed header if any */
+}
+
+/* fixed header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    z-index: 100;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.main-content {
+    max-width: 800px;       /* optional, keeps content narrow */
+    margin-left: 20px;      /* left-align content */
+}
+
+/* shrink-wrapped text box */
+.text-box {
+    background-color: rgba(0,0,0,0.6);
+    color: black;
+    padding: 20px 30px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+Key points
+
+    Don’t use flex for .main-content if you want the box left-aligned.
+
+    Keep background-size: cover so it mostly fills the viewport; it may crop slightly at very short windows

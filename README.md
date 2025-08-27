@@ -11,7 +11,7 @@ export PATH="$HOME/.local/bin:$PATH"
 Install pyenv:
 sudo pkg install pyenv - freebsd
 sudo pacman -Sy pyenv - arch
-
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 Add this to shell config (~/.bashrc, ~/.zshrc, etc.):
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
