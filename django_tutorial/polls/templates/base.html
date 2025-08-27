@@ -3,20 +3,32 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
-    <title>{% block title %}My Site{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'polls/styles.css' %}">
   </head>
-  <body>
+  <body data-bg="{{ bg_url }}">
+  <script>
+    // Immediately apply saved background before page renders
+    const savedBg = localStorage.getItem("background");
+    if (savedBg) {
+        document.body.style.backgroundImage = `url('${savedBg}')`;
+    }
+    </script>
     <!-- fixed header with Home + Background buttons -->
     <header>
-        <!-- Home link styled as button -->
       <a href="{% url 'polls:index' %}" class="header-button">Home</a>
-      <button id="bgButton" class="header-button">Change Background</button>
+      <div class="dropdown">
+        <button id="bgButton" class="header-button">Change Background</button>
+        <ul class="bg-menu">
+          <li data-bg="/static/polls/images/pinney_sunset.jpg">Winter</li>
+          <li data-bg="/static/polls/images/Antonio-Cardoso1.jpg">Summer</li>
+        </ul>
+      </div>
     </header>
-
-    <div class="main-content">
-      {% block content %}
-      {% endblock %}
+      <!-- Only this div will be replaced when navigating -->
+      <div id="content">
+        {% block content %}{% endblock %}
+      </div>
     </div>
 
     <script src="{% static 'polls/script.js' %}"></script>

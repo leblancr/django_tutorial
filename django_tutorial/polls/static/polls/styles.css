@@ -20,7 +20,9 @@ header {
     padding: 10px 20px;
     z-index: 100;
 }
-.header-button {
+
+.header-button, .header-button:link, .header-button:visited, button.header-button {
+    display: inline-block;
     padding: 10px 20px;
     background-color: black;
     color: white;
@@ -28,20 +30,20 @@ header {
     border-radius: 6px;
     text-decoration: none;
     cursor: pointer;
+    font-size: 16px;  /* same font size */
+    line-height: 1.2; /* align text vertically */
 }
 
 .header-button:hover {
     background-color: #333;
 }
 
+button.header-button {
+    font-family: inherit; /* make sure font matches <a> */
+}
 
-.home-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
+.header-button:hover {
+    background-color: #333;
 }
 
 .main-content {
@@ -63,3 +65,42 @@ Key points
     Don’t use flex for .main-content if you want the box left-aligned.
 
     Keep background-size: cover so it mostly fills the viewport; it may crop slightly at very short windows
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    z-index: 100;
+    display: flex;         /* make children horizontal */
+    align-items: center;   /* vertical alignment */
+    gap: 10px;             /* spacing between buttons */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.bg-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid black;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bg-menu li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.bg-menu li:hover {
+  background-color: #eee;
+}
+
