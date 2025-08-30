@@ -18,7 +18,7 @@
     <header>
       <a href="{% url 'polls:index' %}" class="header-button">Home</a>
       <div class="dropdown">
-        <button id="bgButton" class="header-button">Change Background</button>
+        <button id="bgButton" class="header-button">Season</button>
         <ul class="bg-menu">
           <li data-bg="/static/polls/images/pinney_sunset.jpg">Winter</li>
           <li data-bg="/static/polls/images/Antonio-Cardoso1.jpg">Summer</li>
@@ -29,8 +29,6 @@
       <div id="content">
         {% block content %}{% endblock %}
       </div>
-    </div>
-
-    <script src="{% static 'polls/script.js' %}"></script>
+    <script src="{% static 'polls/script.js' %}"defer></script>
   </body>
 </html>

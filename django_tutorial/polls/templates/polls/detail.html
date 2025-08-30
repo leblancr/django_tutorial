@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="text-box">
-  <h1>{{ question.question_text }}</h1>
+  <h2>{{ question.question_text }}</h2>
   <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}
     {% if error_message %}

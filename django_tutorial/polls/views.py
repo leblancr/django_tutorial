@@ -21,6 +21,9 @@ class IndexView(generic.ListView):
         return Question.objects.filter(pub_date__lte=timezone.now()).order_by("-pub_date")
 
 class DetailView(generic.DetailView):
+    """
+    Shows one question and it's list of choices
+    """
     model = Question
     template_name = "polls/detail.html"
 
@@ -28,10 +31,10 @@ class DetailView(generic.DetailView):
             """
             Excludes any questions that aren't published yet.
             """
-            qs = Question.objects.filter(pub_date__lte=timezone.now())
+            queryset = Question.objects.filter(pub_date__lte=timezone.now())
 
             # You can use choice_set here on each Question instance without changing return
-            for q in qs:
+            for q in queryset:
                 print("q:")
                 print(q)
                 print("q.choice_set.all():")
@@ -39,7 +42,7 @@ class DetailView(generic.DetailView):
                 for choice in q.choice_set.all():
                     print("choice:", end="")
                     print(choice)  # prints each choice_text via __str__
-            return qs
+            return queryset
 
 class ResultsView(generic.DetailView):
     model = Question

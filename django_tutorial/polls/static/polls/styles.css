@@ -58,6 +58,9 @@ button.header-button {
     padding: 20px 30px;
     border-radius: 12px;
     display: inline-block;
+    /* font-family: "Georgia", serif; change font */
+    font-size: 16px;              /* optional */
+    /* font-weight: bold;            optional */
 }
 
 Key points
@@ -104,3 +107,6 @@ header {
   background-color: #eee;
 }
 
+.dropdown:hover .bg-menu {
+  display: block;
+}
