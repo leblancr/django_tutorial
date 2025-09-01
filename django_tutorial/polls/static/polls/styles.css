@@ -6,6 +6,9 @@ html, body {
 body {
     /* background: black url("/static/polls/images/pinney_sunset.jpg") no-repeat top center; */
     background-size: cover;  /* fills viewport, keeps aspect ratio */
+    /* background-size: contain;   /* whole image fits inside viewport */
+    background-repeat: no-repeat;
+    background-position: center center;
     font-family: Arial, sans-serif;
     color: black;
     padding-top: 60px;       /* leave room for fixed header if any */
