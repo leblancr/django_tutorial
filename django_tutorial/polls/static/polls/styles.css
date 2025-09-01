@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-    background: black url("/static/polls/images/pinney_sunset.jpg") no-repeat top center;
+    /* background: black url("/static/polls/images/pinney_sunset.jpg") no-repeat top center; */
     background-size: cover;  /* fills viewport, keeps aspect ratio */
     font-family: Arial, sans-serif;
     color: black;
@@ -19,6 +19,34 @@ header {
     width: 100%;
     padding: 10px 20px;
     z-index: 100;
+}
+
+.btn {
+  display: block;
+  margin: 20px auto;
+  background-color: gray;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  width: fit-content;
+}
+
+.btn:link,
+.btn:visited {
+  color: black;       /* ensure consistent text color */
+}
+
+a.btn {
+  display: block;     /* makes sure <a> behaves like submit button */
+}
+
+.btn:hover {
+  background-color: darkgray;
 }
 
 .header-button, .header-button:link, .header-button:visited, button.header-button {
@@ -55,12 +83,20 @@ button.header-button {
 .text-box {
     background-color: rgba(0,0,0,0.6);
     color: black;
-    padding: 20px 30px;
-    border-radius: 12px;
+    padding: 20px 30px 1px 30px; /* top, right, bottom, left */    border-radius: 12px;
     display: inline-block;
     /* font-family: "Georgia", serif; change font */
     font-size: 16px;              /* optional */
     /* font-weight: bold;            optional */
+    margin-left: 20px;           /* push it away from the left edge */
+}
+
+.text-box p,
+.text-box h1,
+.text-box h2,
+.text-box h3 {
+    margin-top: 0;   /* remove space above */
+    margin-bottom: 0.5em; /* keep some space below if you want */
 }
 
 Key points
@@ -109,4 +145,20 @@ header {
 
 .dropdown:hover .bg-menu {
   display: block;
+}
+
+.vote-again {
+  display: block;
+  margin: 20px auto 0;
+  text-align: center;
+  background-color: gray;
+  color: black;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.vote-again:hover {
+  background-color: darkgray;
 }
