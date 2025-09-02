@@ -22,6 +22,7 @@ class Choice(models.Model):
     # question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='choices')
 
     choice_text = models.CharField(max_length=200) #
+    image_url = models.CharField(max_length=500, blank=True, null=True)  # path to image
     votes = models.IntegerField(default=0)
 
     def __str__(self):

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Question{% endblock %}
 
@@ -11,8 +12,14 @@
       <p><strong>{{ error_message }}</strong></p>
     {% endif %}
     {% for choice in question.choice_set.all %}
-      <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-      <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+      <label class="choice-wrapper">
+        <input type="radio" name="choice" value="{{ choice.id }}">
+        {{ choice.choice_text }}
+        <span class="choice-image">
+            <img src="{% static 'polls/images/' %}{{ choice.image_url }}" alt="{{ choice.choice_text }}">
+        </span>
+      </label>
+      <br>
     {% endfor %}
     <input type="submit" value="Vote" class="btn">
   </form>

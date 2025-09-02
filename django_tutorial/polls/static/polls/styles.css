@@ -77,6 +77,35 @@ button.header-button {
     background-color: #333;
 }
 
+.choice-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.choice-wrapper .choice-image {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.choice-wrapper:hover .choice-image {
+  display: block;
+}
+
+.choice-wrapper .choice-image img {
+  max-width: 200px;
+  height: auto;
+}
+
 .main-content {
     max-width: 800px;       /* optional, keeps content narrow */
     margin-left: 20px;      /* left-align content */
