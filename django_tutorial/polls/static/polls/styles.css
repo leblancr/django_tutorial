@@ -77,32 +77,51 @@ button.header-button {
     background-color: #333;
 }
 
-.choice-wrapper {
+.choice-container {
   position: relative;
   display: inline-block;
-  margin: 0.5rem 0;
+  margin: 8px 0;
+  vertical-align: top; /* makes each label + popup align neatly */
+}
+
+.choice-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
   cursor: pointer;
 }
 
-.choice-wrapper .choice-image {
-  display: none;
+/* popup */
+.choice-image {
   position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 10;
-  padding: 4px;
+  top: 50%;
+  left: 100%;               /* lock popup to the RIGHT of the label */
+  margin-left: 0;        /* small gap */
+  transform: translateY(-50%);
+  z-index: 9999;
   background: #fff;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  padding: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+
+  display: none !important;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .12s ease, visibility .12s;
 }
 
-.choice-wrapper:hover .choice-image {
+.choice-container:hover .choice-image,
+.choice-image:hover {
+  display: block !important;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.choice-image img {
   display: block;
-}
-
-.choice-wrapper .choice-image img {
-  max-width: 200px;
+  max-width: 300px;
   height: auto;
 }
 
