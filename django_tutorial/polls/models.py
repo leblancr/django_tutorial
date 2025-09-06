@@ -23,6 +23,11 @@ class Choice(models.Model):
 
     choice_text = models.CharField(max_length=200) #
     image_url = models.CharField(max_length=500, blank=True, null=True)  # path to image
+    image_size = models.CharField(
+        max_length=20,
+        choices=[("inline", "Inline Icon"), ("small", "Small"), ("medium", "Medium"), ("large", "Large")],
+        default="medium",
+    )
     votes = models.IntegerField(default=0)
 
     def __str__(self):

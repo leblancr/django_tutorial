@@ -105,7 +105,7 @@ python manage.py migrate
 to start the server:
 From:
 ~/projects/python/django_tutorial/django_tutorial>
-python manage.py runserver  
+poetry run python manage.py runserver  
 
 django admin:
 user: admin

@@ -14,14 +14,50 @@ body {
     padding-top: 60px;       /* leave room for fixed header if any */
 }
 
-/* fixed header */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    justify-content: space-between;
     padding: 10px 20px;
     z-index: 100;
+    display: flex;         /* make children horizontal */
+    align-items: center;   /* vertical alignment */
+    box-sizing: border-box;  /* ADD THIS */
+}
+
+header .dropdown {
+  justify-content: space-between
+}
+
+a.btn {
+  display: block;     /* makes sure <a> behaves like submit button */
+}
+
+button.header-button {
+    font-family: inherit; /* make sure font matches <a> */
+}
+
+.bg-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0; /* under button */
+  background: white;
+  border: 1px solid black;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bg-menu li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.bg-menu li:hover {
+  background-color: #eee;
 }
 
 .btn {
@@ -44,12 +80,63 @@ header {
   color: black;       /* ensure consistent text color */
 }
 
-a.btn {
-  display: block;     /* makes sure <a> behaves like submit button */
-}
-
 .btn:hover {
   background-color: darkgray;
+}
+
+.choice-container {
+  position: relative;
+  display: block;
+  margin: 8px 0;
+}
+
+.choice-container label {
+  margin: 0;
+}
+
+.choice-image {
+  display: none;
+  position: absolute;
+  top: 0;       /* align with the top of the label */
+  left: 100%;   /* push it to the right of the choice */
+  margin-left: 10px; /* add some spacing */
+  z-index: 1000;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 2px; /* the black frame around image */
+}
+
+.choice-container:hover .choice-image {
+  display: block;
+}
+
+.choice-image img {
+  /* max-width: 600px;  adjust size */
+  max-width: none; /* allow natural size */
+  height: auto;
+  display: block;
+}
+
+/* Inline icons */
+.inline-icon {
+  width: 20px;   /* or auto if you want default size */
+  height: auto;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Hover previews */
+.choice-container.small .choice-image img { max-width: 150px; }
+.choice-container.normal .choice-image img { max-width: 400px; }
+.choice-container.large .choice-image img { max-width: 800px; }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown:hover .bg-menu {
+  display: block;
 }
 
 .header-button, .header-button:link, .header-button:visited, button.header-button {
@@ -69,60 +156,8 @@ a.btn {
     background-color: #333;
 }
 
-button.header-button {
-    font-family: inherit; /* make sure font matches <a> */
-}
-
 .header-button:hover {
     background-color: #333;
-}
-
-.choice-container {
-  position: relative;
-  display: inline-block;
-  margin: 8px 0;
-  vertical-align: top; /* makes each label + popup align neatly */
-}
-
-.choice-wrapper {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  cursor: pointer;
-}
-
-/* popup */
-.choice-image {
-  position: absolute;
-  top: 50%;
-  left: 100%;               /* lock popup to the RIGHT of the label */
-  margin-left: 0;        /* small gap */
-  transform: translateY(-50%);
-  z-index: 9999;
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-
-  display: none !important;
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .12s ease, visibility .12s;
-}
-
-.choice-container:hover .choice-image,
-.choice-image:hover {
-  display: block !important;
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.choice-image img {
-  display: block;
-  max-width: 300px;
-  height: auto;
 }
 
 .main-content {
@@ -140,6 +175,7 @@ button.header-button {
     font-size: 16px;              /* optional */
     /* font-weight: bold;            optional */
     margin-left: 20px;           /* push it away from the left edge */
+    text-align: left;  /* left-align text inside the box */
 }
 
 .text-box p,
@@ -148,54 +184,6 @@ button.header-button {
 .text-box h3 {
     margin-top: 0;   /* remove space above */
     margin-bottom: 0.5em; /* keep some space below if you want */
-}
-
-Key points
-
-    Don’t use flex for .main-content if you want the box left-aligned.
-
-    Keep background-size: cover so it mostly fills the viewport; it may crop slightly at very short windows
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px 20px;
-    z-index: 100;
-    display: flex;         /* make children horizontal */
-    align-items: center;   /* vertical alignment */
-    gap: 10px;             /* spacing between buttons */
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.bg-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  border: 1px solid black;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.bg-menu li {
-  padding: 8px 12px;
-  cursor: pointer;
-}
-
-.bg-menu li:hover {
-  background-color: #eee;
-}
-
-.dropdown:hover .bg-menu {
-  display: block;
 }
 
 .vote-again {
