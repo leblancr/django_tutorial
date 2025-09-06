@@ -186,6 +186,29 @@ button.header-button {
     margin-bottom: 0.5em; /* keep some space below if you want */
 }
 
+/* Force the results page content to be left-aligned
+   while keeping the text-box shrink-wrapped like before */
+.results-page {
+  text-align: left !important;   /* make child inline-blocks align left */
+}
+
+.results-page .text-box {
+  display: inline-block;         /* keep shrinkwrap (doesn't fill width) */
+  vertical-align: top;           /* align with other content if present */
+  text-align: left !important;   /* ensure text inside is left-aligned */
+  margin-left: 20px;             /* keep your spacing */
+  max-width: 800px;
+  width: auto;
+}
+
+/* Make sure lists inside are using normal left padding */
+.results-page .text-box ul,
+.results-page .text-box ol {
+  padding-left: 1.2rem;          /* restore bullet/number indent */
+  margin-left: 0;
+  text-align: left;
+}
+
 .vote-again {
   display: block;
   margin: 20px auto 0;
